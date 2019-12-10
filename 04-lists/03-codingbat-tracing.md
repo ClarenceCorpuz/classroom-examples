@@ -32,22 +32,28 @@ def double(n: int) -> int:
 
 End example
 ---
-### double_23
-Given an int array, return true if the array contains 2 twice, or 3 twice. The array will be length 0, 1, or 2.
 
+### maxEnd3
+
+Given an array of ints length 3, figure out which is larger, 
+the first or last element in the array, and set all the other 
+elements to be that value. Return the changed array.
 ```
-double_23([2, 2]) → true
-double_23([3, 3]) → true
-double_23([2, 3]) → false
+max_end3([1, 2, 3]) → [3, 3, 3]
+max_end3([11, 5, 9]) → [11, 11, 11]
+max_end3([2, 11, 3]) → [3, 3, 3]
 ```
 Solutions:
 
 ```python
-def double_23(list_1: list) -> bool:
-    if list_1[0] == 2 and list_1[1] == 2:
-        return True
-    elif list_1[0] == 3 and list_1[1] == 3:
-        return True
-    else:
-        return False
-```
+def max_end3(nums):
+  if nums[0] > nums[2]:
+    nums[2] = nums[0]
+    nums[1] = nums[0]
+  elif nums[2] > nums[0]:
+    nums[0] = nums[2]
+    nums[1] = nums[2]
+  else:
+    nums[1] = nums[0]
+  return nums
+  ```
